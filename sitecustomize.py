@@ -8,7 +8,8 @@ import tiktoken_ext.openai_public as openai_public
 
 
 def _local_gpt2():
-    fixtures_dir = Path(__file__).resolve().parent / "fixtures"
+    project_root = Path(__file__).resolve().parent
+    fixtures_dir = project_root / "tests" / "fixtures"
     with open(fixtures_dir / "gpt2_vocab.json", encoding="utf-8") as handle:
         raw_vocab = json.load(handle)
     byte_decoder = {value: key for key, value in _gpt2_bytes_to_unicode().items()}
